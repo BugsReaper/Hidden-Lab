@@ -77,3 +77,12 @@ if (glitchTitle) {
        ${Math.random()*4-2}px ${Math.random()*4-2}px #00ffff`;
   }, 250);
 }
+
+
+const logoutBtn = document.getElementById('logout-btn');
+
+logoutBtn.addEventListener('click', () => {
+  localStorage.removeItem("loggedIn"); // limpia el login
+  window.location.href = "login.html";  // vuelve al login
+});
+
