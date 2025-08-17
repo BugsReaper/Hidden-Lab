@@ -52,11 +52,27 @@ body {
 /* ===================== Lista de proyectos ===================== */
 .project-list {
   display: flex;
+  flex-direction: row;       /* asegura fila horizontal */
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
+  justify-content: flex-start; /* todos alineados a la izquierda */
+  gap: 15px;                 /* espacio entre botones */
+  flex-wrap: nowrap;          /* evita que los botones se bajen de fila */
+  overflow-x: auto;           /* si hay muchos botones, permite scroll horizontal */
+  padding: 10px 0;            /* un poco de padding arriba y abajo */
+}
+
+/* opcional: quitar scrollbar feo y dejar solo para scroll con scroll suave */
+.project-list::-webkit-scrollbar {
+  height: 6px;
+}
+
+.project-list::-webkit-scrollbar-thumb {
+  background-color: #6a0dad;
+  border-radius: 3px;
+}
+
+.project-list::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .project-btn {
@@ -240,3 +256,4 @@ body {
   background: #9b30ff;
   box-shadow: 0 0 10px #ff6aff;
 }
+
