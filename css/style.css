@@ -57,7 +57,7 @@ body {
   justify-content: flex-start; /* todos alineados a la izquierda */
   gap: 15px;                 /* espacio entre botones */
   flex-wrap: nowrap;          /* evita que los botones se bajen de fila */
-  overflow-x: auto;           /* si hay muchos botones, permite scroll horizontal */
+             /* si hay muchos botones, permite scroll horizontal */
   padding: 10px 0;            /* un poco de padding arriba y abajo */
 }
 
@@ -256,4 +256,5 @@ body {
   background: #9b30ff;
   box-shadow: 0 0 10px #ff6aff;
 }
+
 
