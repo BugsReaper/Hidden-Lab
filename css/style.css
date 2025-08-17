@@ -218,3 +218,25 @@ body {
   color: #ff6aff;
   box-shadow: 0 0 12px #ff6aff;
 }
+
+
+#logout-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #6a0dad;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Fira Code', monospace;
+  transition: all 0.25s;
+  z-index: 10;
+}
+
+#logout-btn:hover {
+  background: #9b30ff;
+  box-shadow: 0 0 10px #ff6aff;
+}
+
