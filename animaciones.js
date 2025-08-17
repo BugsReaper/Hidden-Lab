@@ -19,20 +19,26 @@ if (iframe && closeBtn && openFullBtn) {
   });
 
   // Cerrar iframe
-  closeBtn.addEventListener('click', () => {
-    iframe.classList.remove('visible');   // transición suave
-    setTimeout(() => {
-      iframe.src = "";                     // limpia el iframe después de la animación
-    }, 600);                               // coincide con la duración CSS
-  });
+const iframeContainer = document.querySelector('.iframe-container');
 
-  // Abrir proyecto en nueva pestaña
-  openFullBtn.addEventListener('click', () => {
-    if (iframe.src) {
-      window.open(iframe.src, "_blank");  // abre en nueva pestaña
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.dataset.src !== "#") {
+      iframe.src = btn.dataset.src;
+      iframe.classList.add('visible');
+      iframeContainer.classList.add('active'); // muestra botones
     }
   });
-}
+});
+
+// Cerrar iframe
+closeBtn.addEventListener('click', () => {
+  iframe.classList.remove('visible');
+  iframeContainer.classList.remove('active'); // oculta botones
+  setTimeout(() => {
+    iframe.src = "";
+  }, 600);
+});
 
 // ----------------------------
 // Comprobar login al cargar
@@ -85,4 +91,5 @@ logoutBtn.addEventListener('click', () => {
   localStorage.removeItem("loggedIn"); // limpia el login
   window.location.href = "login.html";  // vuelve al login
 });
+
 
