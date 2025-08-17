@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hidden Labs - Bug Reaper</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="particles"></div>
+
+  <div class="container">
+    <h1 id="glitch-title">HIDDEN LAB OF BUG REAPER</h1>
+    <p class="subtitle">Por favor selecciona tu proyecto ⬇️</p>
+
+    <div class="project-list">
+      <div class="project-btn" data-src="experimentos/project01/index.html">
+        -> Project-1 "Invisible Dash"<br>
+        <span class="project-subtitle">DashBoard del Clima</span>
+      </div>
+
+      <div class="separator">- - - - - -</div>
+
+      <div class="project-btn" data-src="#">
+        -> Project-2 "???"<br>
+        <span class="project-subtitle">???</span>
+      </div>
+
+      <div class="separator">- - - - - -</div>
+
+      <div class="project-btn" data-src="#">
+        -> Project-3 "???"<br>
+        <span class="project-subtitle">???</span>
+      </div>
+
+      <div class="separator">- - - - - -</div>
+
+      <div class="project-btn" data-src="#">
+        -> Project-4 "???"<br>
+        <span class="project-subtitle">???</span>
+      </div>
+    </div>
+
+    <!-- Contenedor del iframe con botones -->
+    <div class="iframe-container">
+      <button id="close-iframe">✖</button>
+      <button id="open-full">⬜</button>
+      <iframe id="experiment-frame" src="" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <script src="animaciones.js"></script>
+</body>
+</html>
