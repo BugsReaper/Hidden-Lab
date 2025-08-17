@@ -7,6 +7,7 @@ const openFullBtn = document.getElementById('open-full');
 
 if (iframe && closeBtn && openFullBtn) {
   const buttons = document.querySelectorAll('.project-btn');
+  const iframeContainer = document.querySelector('.iframe-container');
 
   // Clic en proyecto
   buttons.forEach(btn => {
@@ -14,39 +15,34 @@ if (iframe && closeBtn && openFullBtn) {
       if (btn.dataset.src && btn.dataset.src !== "#") {
         iframe.src = btn.dataset.src;       // carga el proyecto en el iframe
         iframe.classList.add('visible');    // activa transición CSS
+        iframeContainer.classList.add('active'); // muestra botones
       }
     });
   });
 
   // Cerrar iframe
-const iframeContainer = document.querySelector('.iframe-container');
+  closeBtn.addEventListener('click', () => {
+    iframe.classList.remove('visible');
+    iframeContainer.classList.remove('active'); // oculta botones
+    setTimeout(() => {
+      iframe.src = "";
+    }, 600);
+  });
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (btn.dataset.src !== "#") {
-      iframe.src = btn.dataset.src;
-      iframe.classList.add('visible');
-      iframeContainer.classList.add('active'); // muestra botones
+  // Abrir proyecto en nueva pestaña
+  openFullBtn.addEventListener('click', () => {
+    if (iframe.src) {
+      window.open(iframe.src, "_blank");
     }
   });
-});
-
-// Cerrar iframe
-closeBtn.addEventListener('click', () => {
-  iframe.classList.remove('visible');
-  iframeContainer.classList.remove('active'); // oculta botones
-  setTimeout(() => {
-    iframe.src = "";
-  }, 600);
-});
+}
 
 // ----------------------------
 // Comprobar login al cargar
 // ----------------------------
 window.addEventListener('load', () => {
-  const onHiddenLabsPage = iframe !== null; // si existe iframe, estamos en Home
-  if (onHiddenLabsPage && localStorage.getItem("loggedIn") !== "true") {
-    window.location.href = "login.html";    // redirige si no está logueado
+  if (iframe && localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html"; // redirige si no está logueado
   }
 });
 
@@ -84,12 +80,13 @@ if (glitchTitle) {
   }, 250);
 }
 
-
+// ----------------------------
+// Logout
+// ----------------------------
 const logoutBtn = document.getElementById('logout-btn');
-
-logoutBtn.addEventListener('click', () => {
-  localStorage.removeItem("loggedIn"); // limpia el login
-  window.location.href = "login.html";  // vuelve al login
-});
-
-
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem("loggedIn"); // limpia el login
+    window.location.href = "login.html";  // vuelve al login
+  });
+}
