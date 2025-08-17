@@ -49,7 +49,7 @@ body {
   text-shadow: 0 0 6px #b28eff;
 }
 
-/* ===================== Lista de proyectos horizontal ===================== */
+/* ===================== Lista de proyectos ===================== */
 .project-list {
   display: flex;
   align-items: center;
@@ -82,7 +82,6 @@ body {
   color: #a080ff;
 }
 
-/* Separador */
 .separator {
   color: transparent;
   opacity: 0.6;
@@ -117,45 +116,47 @@ body {
   transform: translateY(0);
 }
 
-/* Botón cerrar */
-#close-iframe {
-  position: absolute;
-  top: -10px;
-  right: 40px;
-  background: #6a0dad;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  font-size: 16px;
-  box-shadow: 0 0 8px rgba(106,13,173,0.7);
-  transition: all 0.25s;
-}
-
-#close-iframe:hover {
-  background: #9b30ff;
-}
-
-/* Botón abrir en tamaño completo */
+/* ===================== Botones flotantes ===================== */
+#close-iframe,
 #open-full {
   position: absolute;
   top: -10px;
-  right: 0px;
   background: #6a0dad;
   color: #fff;
   border: none;
-  width: 30px;
-  height: 30px;
   cursor: pointer;
   font-size: 16px;
   box-shadow: 0 0 8px rgba(106,13,173,0.7);
   transition: all 0.25s;
+  opacity: 0;             /* invisibles por defecto */
+  pointer-events: none;   /* no clickeables por defecto */
+  z-index: 5;             /* por encima del iframe */
 }
 
+#close-iframe {
+  right: 40px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+#open-full {
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.iframe-container.active #close-iframe,
+.iframe-container.active #open-full {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#close-iframe:hover,
 #open-full:hover {
   background: #9b30ff;
+  box-shadow: 0 0 12px #ff6aff;
 }
 
 /* ===================== Partículas sutiles ===================== */
@@ -219,7 +220,7 @@ body {
   box-shadow: 0 0 12px #ff6aff;
 }
 
-
+/* ===================== Botón logout ===================== */
 #logout-btn {
   position: absolute;
   top: 10px;
@@ -239,4 +240,3 @@ body {
   background: #9b30ff;
   box-shadow: 0 0 10px #ff6aff;
 }
-
